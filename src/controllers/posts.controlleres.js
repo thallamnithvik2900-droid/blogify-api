@@ -1,58 +1,20 @@
-const getAllPosts = (req, res) => {
+exports.getAllPosts = (req, res) => {
   res.status(200).json({
     success: true,
-    data: {
-      message: "All posts fetched successfully"
-    }
+    data: [],
   });
 };
 
-const getPostById = (req, res) => {
-  const { id } = req.params;
-
+exports.getPostById = (req, res) => {
   res.status(200).json({
     success: true,
-    data: {
-      message: `Details for post ${id}`
-    }
+    data: { id: req.params.id },
   });
 };
 
-const createPost = (req, res) => {
+exports.createPost = (req, res) => {
   res.status(201).json({
     success: true,
-    data: {
-      message: "Post created successfully"
-    }
+    data: req.body,
   });
-};
-
-const updatePost = (req, res) => {
-  const { id } = req.params;
-
-  res.status(200).json({
-    success: true,
-    data: {
-      message: `Post ${id} updated successfully`
-    }
-  });
-};
-
-const deletePost = (req, res) => {
-  const { id } = req.params;
-
-  res.status(200).json({
-    success: true,
-    data: {
-      message: `Post ${id} deleted successfully`
-    }
-  });
-};
-
-module.exports = {
-  getAllPosts,
-  getPostById,
-  createPost,
-  updatePost,
-  deletePost
 };
